@@ -97,6 +97,84 @@ public class MemberDAO {
 		}
 	}
 	
+	// 아이디 찾기 ( 이름과 이메일로 )
+	public String searchId(String name, String email) {
+		
+		String id = null;
+		
+		try {
+			conn = dataFactory.getConnection();
+			String query = " SELECT id FROM h_member WHERE name = ? and email = ? ";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				id = rs.getString("id");
+				System.out.println(id);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close.closeConnStmtRs(conn, pstmt, rs);
+		}
+		return id;
+	}
+	// 비밀번호 찾기(아이디 존재유무 먼저 리턴)
+	public boolean searchPwdForId(String id) {
+		
+		try {
+			conn = dataFactory.getConnection();
+			String query = " SELECT id from h_member ";
+			pstmt = conn.prepareStatement(query);
+			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				if (rs.getString("id").equals(id)) {
+					return true;
+				}
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+			close.closeConnStmtRs(conn, pstmt, rs);
+		}
+
+		return false;
+	}
+	
+	
+	
+	// 비밀번호 찾기 ( 이름, 이메일로 )
+		public String searchPwd(String name, String email) {
+			
+			String pwd = null;
+			
+			try {
+				conn = dataFactory.getConnection();
+				String query = " SELECT password FROM h_member WHERE name = ? and email = ? ";
+				pstmt = conn.prepareStatement(query);
+		
+				pstmt.setString(1, name);
+				pstmt.setString(2, email);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					pwd = rs.getString("password");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return pwd;
+		}
+	
 	
 	
 	

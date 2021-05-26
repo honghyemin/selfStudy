@@ -24,7 +24,7 @@ request.setCharacterEncoding("UTF-8");
 		}
 	}
 	function backToList(obj) {
-		obj.action = "${contextPath}/board/boardMain.do";
+		obj.action = "${contextPath}/mct/boardMain.do";
 		obj.submit();
 	}
 </script>

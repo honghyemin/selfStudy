@@ -33,6 +33,9 @@ public class BoardService {
 		
 	}
 	
+	
+	
+	
 	public int addPosting(BoardVO board) {
 		
 		return boardDAO.addPosting(board);

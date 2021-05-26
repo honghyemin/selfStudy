@@ -34,6 +34,12 @@
 
 </head>
 <body>
+<p>	접속자 : </p>  
+<p>${myId }</p>
+
+
+
+
 <table align="center" border="1"  width="80%"  >
   <tr height="10" align="center"  bgcolor="lightgreen">
      <td >글번호</td>

@@ -13,6 +13,26 @@ public class MemberVO {
 	public MemberVO() {
 		super();
 	}
+	
+	
+
+	public MemberVO(String name, String email) {
+		super();
+		this.name = name;
+		this.email = email;
+	}
+
+	
+
+
+	public MemberVO(String id, String name, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+	}
+
+
 
 	public MemberVO(String id, String pwd, String name, String email) {
 		super();

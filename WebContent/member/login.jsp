@@ -24,6 +24,7 @@ request.setCharacterEncoding("UTF-8");
 	</form>
 	<br><br>
 	<a href="${contextPath }/member/joinForm.jsp">회원가입</a>
+	<a href="${contextPath }/member/searchInfo.jsp">아이디/비밀번호 찾기</a>
 	
 
 </body>
