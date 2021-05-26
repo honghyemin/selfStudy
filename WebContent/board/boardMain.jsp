@@ -23,6 +23,19 @@
 <meta charset="UTF-8">
 <title>게시판화면</title>
 <script>
+	function logout(){
+		
+		var logout2 = document.lout;
+		
+		
+		var answer = confirm("정말 로그아웃 하시겠습니까?");
+		if(answer){
+			alert("로그인 창으로 이동합니다.");
+			logout2.action="${contextPath}/mct/logout.do";
+			logout2.submit();
+		}
+		
+	}
 	
 </script>
 <style>
@@ -30,12 +43,33 @@
 	.sel-page{text-decoration:none; color:red;}
 	.cls1 {text-decoration:noen; text-align:center; }
 	.cls2{text-align:center; margin-top: 50px;}
+	
+	li {float : left;}
+	li a, .drop {display : inline-block; test-decoration:none;}
+	li a:hover, .myId:hover, .drop{color : red;	}
+	li.myId { display:inline-block;}
+	.dropdown a {display:block; text-align:left;}
+	.myId:hover .dropdown{display:block;}
+	.dropdown {display:none; position:absolute;}
+	ul {display:inline;}
+	
 </style>
 
 </head>
 <body>
 <p>	접속자 : </p>  
-<p>${myId }</p>
+<ul>
+<li class="myId">
+<a href="javascript:void(0)" class="drop">${myId }</a>
+<div class="dropdown">
+<a href="'${contextPath}/member/login.jsp;'">마이페이지</a>
+<form name="lout" action="" enctype="utf-8" method="post">
+<input type="button" value="로그아웃"  onclick="logout();" >
+</form>
+
+</div>
+</li>
+</ul>
 
 
 

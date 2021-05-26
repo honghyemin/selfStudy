@@ -106,6 +106,11 @@ public class MemberController extends HttpServlet {
 				} else {
 					nextPage = "/member/falseResult.jsp";
 				}
+			// 로그아웃
+			} else if(action.equals("/logout.do")) {
+				SaveID.myId = null;
+				nextPage = "/member/login.jsp";
+				
 
 				// 회원가입창에서 요청
 			} else if (action.equals("/joinForm.do")) {
