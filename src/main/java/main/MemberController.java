@@ -86,6 +86,11 @@ public class MemberController extends HttpServlet {
 		System.out.println("action:" + action);
 		HttpSession session; // 답글에 대한 부모 글 번호 저장위해 사용
 
+		
+		try {
+			List<BoardVO> list = new ArrayList<BoardVO>();
+			
+			
 		// 로그인페이지에서 요청
 		if (action.equals("/login.do")) {
 			String id = request.getParameter("id");
@@ -295,7 +300,13 @@ public class MemberController extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(nextPage);
 		rd.forward(request, response);
 		
+		
+		} catch(Exception e){
+		e.printStackTrace();
 	}
+	}
+		
+	
 	
 	private Map<String, String> upload(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		Map<String, String> postingMap = new HashMap<String, String>();

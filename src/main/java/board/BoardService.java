@@ -14,8 +14,8 @@ public class BoardService {
 	}
 
 	public List<BoardVO> boardList() {
-		List<BoardVO> boardList = boardDAO.viewBoard();
-		return boardList;
+		List<BoardVO> list = boardDAO.viewAllBoard();
+		return list;
 	}
 	
 	public Map boardList(Map<String, Integer> pagingMap) {

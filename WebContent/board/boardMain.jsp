@@ -7,7 +7,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"  />  
-<c:set var="list" value="${postingMap.list }" />
+<c:set var="list" value="${postingMap.boardList }" />
 <c:set var="totPosting" value="${postingMap.totPosting }" />
 <c:set var="section" value="${postingMap.section }" />
 <c:set var="pageNum" value="${postingMap.pageNum }" />
@@ -22,12 +22,16 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판화면</title>
+<script>
+	
+</script>
 <style>
 	.no-uline{text-decoration:none;}
 	.sel-page{text-decoration:none; color:red;}
 	.cls1 {text-decoration:noen;}
 	.cls2{}
 </style>
+
 </head>
 <body>
 <table align="center" border="1"  width="80%"  >

@@ -73,6 +73,8 @@ public class BoardDAO {
 				boardVO.setWriteDate(writeDate);
 				list.add(boardVO);
 			}
+			
+			System.out.println("페이징:"+list.toString());
 					
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,6 +86,7 @@ public class BoardDAO {
 		
 	}
 	
+
 	// ?
 	public int selectToPosting() {
 		
@@ -106,7 +109,7 @@ public class BoardDAO {
 	
 	
 	// 게시판 글 목록 조회
-	public List<BoardVO> viewBoard(){
+	public List<BoardVO> viewAllBoard(){
 		List<BoardVO> list = new ArrayList<>();
 		
 		
