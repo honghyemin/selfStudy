@@ -19,7 +19,7 @@ request.setCharacterEncoding("UTF-8");
 <script>
 
 	alert("회원 정보가 없습니다. 로그인페이지로 이동합니다.");
-	window.location.href = "login.jsp";
+	window.location.href = "${contextPath }/member/login.jsp";
 	
 </script>
 </head>

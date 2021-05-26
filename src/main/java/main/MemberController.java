@@ -129,6 +129,8 @@ public class MemberController extends HttpServlet {
 			String _section = request.getParameter("section");
 			String _pageNum = request.getParameter("pageNum");
 			
+			System.out.println(_section+","+_pageNum);
+			
 			// section값과 pageNum값이 없으면 각각1로 초기화
 			int section = Integer.parseInt(((_section == null) ? "1" : _section));
 			int pageNum = Integer.parseInt(((_pageNum == null) ? "1" : _pageNum));

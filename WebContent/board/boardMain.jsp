@@ -28,8 +28,8 @@
 <style>
 	.no-uline{text-decoration:none;}
 	.sel-page{text-decoration:none; color:red;}
-	.cls1 {text-decoration:noen;}
-	.cls2{}
+	.cls1 {text-decoration:noen; text-align:center; }
+	.cls2{text-align:center; margin-top: 50px;}
 </style>
 
 </head>
