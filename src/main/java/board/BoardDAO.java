@@ -113,7 +113,6 @@ public class BoardDAO {
 		List<BoardVO> list = new ArrayList<>();
 		
 		
-		
 		try {
 			conn = dataFactory.getConnection();
 			String query = " SELECT LEVEL, articleNO, parentNO, title, content, id, writeDate ";
@@ -352,6 +351,45 @@ public class BoardDAO {
 		
 	}
 	
+	// 내가 쓴 글 목록 리턴
+	public List<BoardVO> myLists(String id){
+		List<BoardVO> list = new ArrayList<>();
+		
+		try {
+			conn = dataFactory.getConnection();
+			String query = " SELECT * FROM h_board WEHRE id = ? ";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int level = rs.getInt("level");
+				int articleNO = rs.getInt("articleNO");
+				int parentNO = rs.getInt("parentNO");
+				String title = rs.getString("title");
+				String content = rs.getString("content");
+				id = rs.getString("id");
+				Date writeDate = rs.getDate("writeDate");
+				BoardVO boardVO = new BoardVO();
+				boardVO.setLevel(level);
+				boardVO.setArticleNum(articleNO);
+				boardVO.setParentNum(parentNO);
+				boardVO.setTitle(title);
+				boardVO.setContent(content);
+				boardVO.setId(id);
+				boardVO.setWriteDate(writeDate);
+				list.add(boardVO);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close.closeConnStmtRs(conn, pstmt, rs);
+		}
+		return list;
+	}
 	
 	
 	

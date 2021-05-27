@@ -1,0 +1,25 @@
+
+
+	div {border: 3px solid black; height:800px;}
+    .main > div {float: left;}
+    .menubar {width :20%;  height : 100%; }
+    .mainboard {  width :75%; height : 100%; margin-left: 15px;}
+    .mypageText {text-align: center; font-size: 20pt; font-weight: bold;}
+    ul {border-top: 1px solid gray; padding-top: 20px;}
+    ul>li{margin-bottom: 10px;}
+    .mypageMain {width:90%; height: 60%; position: relative; margin: auto; display: none;}
+    .myInfo {border:1px solid gray; height:20%;}
+    .myInfoView {height : 70%; border:1px solid gray; margin-top: 10px;}
+    .myInfoView > div {float: left;}
+    .myInfoView > p {float: left;}
+    .myInfoView > div> img { width:200px; margin-top: 50px; margin-left: 30px;}
+    #btns {position:absolute; bottom:20px; margin-left: 400px;}
+    .onlyTextInfo { height: 80%; width: 60%; margin-left: 20px; position:relative;}
+    .formInfo{height: 100%; width: 100%; position:absolute; margin-left: -4px; margin-top: -130px;  background-color: gray; display: none;  }
+
+    .myPosting { width: 90%; height : 40%; margin: auto; display: none;}
+    .boardTitle {height:20%;  }
+
+    .postingList {height : 75%;}
+    .postingTable {width: 90%; border: 1px solid gray; margin:auto; text-align: center;}
+    .postingTable th, .postingTable td { border : 1px solid gray;}

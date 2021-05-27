@@ -37,6 +37,7 @@ public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String POSTING_IMAGE_REPO = "C:\\stp\\image";
 	MemberDAO memberDAO;
+	MemberVO memberVO;
 	BoardService boardService;
 	BoardVO boardVO;
 	
@@ -184,7 +185,28 @@ public class MemberController extends HttpServlet {
 					
 
 				}
-
+			// 내정보 리턴
+			} else if (action.equals("/showMyInfo.do")) {
+				String id = SaveID.myId;
+				memberVO = new MemberVO();
+				memberVO = memberDAO.myInfo(id);
+				String name = memberVO.getName();
+				String email = memberVO.getEmail();
+				
+				request.setAttribute("id", id);
+				request.setAttribute("name", name);
+				request.setAttribute("email", email);
+				
+				nextPage = "/member/myPage.jsp";
+			
+			// 내가 쓴 글 리턴
+			} else if (action.equals("/myPostingList.do")) {
+				
+				String id = SaveID.myId;
+				List<BoardVO> myList = new ArrayList<BoardVO>();
+				request.setAttribute("myList", myList);
+				nextPage = "/member/myPage.jsp";
+				
 			} else if (action.equals("/boardMain.do")) {
 
 				// /boardMain.do로 요청 시 section값과 pageNum값 구하기

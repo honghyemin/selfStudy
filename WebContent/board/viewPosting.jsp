@@ -127,7 +127,7 @@ request.setCharacterEncoding("UTF-8");
 		<tr id="tr_btn_modify">
 			<td colspan="2" align="center">
 				<input type=button value="수정반영하기" onClick="fn_modify_article(frmPosting)"> 
-				<input type=button value="취소" onClick="backToList(frmPosting"></td>
+				<input type=button value="취소" onClick="backToList(frmPosting)"></td>
 		</tr>
 
 		<tr id="tr_btn">

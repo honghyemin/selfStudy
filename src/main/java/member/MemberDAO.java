@@ -176,7 +176,33 @@ public class MemberDAO {
 		}
 	
 	
-	
+		// 회원정보 리턴(아이디, 이름, 이메일)
+		public MemberVO myInfo(String id) {
+			
+			MemberVO memberVO = new MemberVO();
+			
+			try {
+				conn = dataFactory.getConnection();
+				String query = " SELECT * FROM h_member WHERE id = ? ";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, id);
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					memberVO = new MemberVO(id, rs.getString("name"), rs.getString("email"));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close.closeConnStmtRs(conn, pstmt, rs);
+			}
+			
+			
+			return memberVO;
+			
+		}
 	
 	
 	

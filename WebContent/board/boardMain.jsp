@@ -62,7 +62,7 @@
 <li class="myId">
 <a href="javascript:void(0)" class="drop">${myId }</a>
 <div class="dropdown">
-<a href="'${contextPath}/member/login.jsp;'">마이페이지</a>
+<a href="${contextPath}/mct/showMyInfo.do;">마이페이지</a>
 <form name="lout" action="" enctype="utf-8" method="post">
 <input type="button" value="로그아웃"  onclick="logout();" >
 </form>

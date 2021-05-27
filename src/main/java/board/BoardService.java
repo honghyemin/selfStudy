@@ -60,5 +60,12 @@ public class BoardService {
 	public int addReply(BoardVO board) {
 		return boardDAO.addPosting(board);
 	}
+	
+	public List<BoardVO> myLists(String id) {
+		List<BoardVO> list = null;
+		list = boardDAO.myLists(id);
+		return list;
+		
+	}
 
 }
