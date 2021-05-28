@@ -31,6 +31,7 @@ request.setCharacterEncoding("UTF-8");
             if($(".myPosting").show()){
                 $(".myPosting").css("display","none");
             }
+            location.href="${contextPath}/mct/showMyInfo.do"
         });
     }
     function showMyBoard(){
@@ -96,40 +97,6 @@ div {
 	display: block;
 }
 
-.myInfo {
-	border: 1px solid gray;
-	height: 20%;
-}
-
-.myInfoView {
-	height: 70%;
-	border: 1px solid gray;
-	margin-top: 10px;
-}
-
-.myInfoView>div {
-	float: left;
-}
-
-.myInfoView>p {
-	float: left;
-}
-
-.myPhoto {
-	width: 180px;
-	height: 200px;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.myInfoView>div>img {
-	width: 200px;
-	margin-top: 50px;
-	margin-left: 30px;
-	background-size: contain;
-}
 
 #btns {
 	position: absolute;
@@ -158,7 +125,7 @@ div {
 	width: 90%;
 	height: 80%;
 	margin: auto;
-	display: none;
+
 }
 
 .boardTitle {
@@ -193,40 +160,45 @@ div {
 
 		</div>
 		<div class="mainboard">
-			<div class="mypageMain">
-				<div class="myInfo">
-					<p style="text-align: center;">내정보</p>
+			<div class="myPosting">
+				<div class="boardTitle">
+					<h3 style="text-align: center;">작성글 목록</h3>
 				</div>
-				<div class="myInfoView">
-					<div style="width: 30%; height: 80%;" class="myPhoto">
-						<img src="${pageContext.request.contextPath}\image\duke2.png" />
-					</div>
-					<div class="onlyTextInfo">
-						<p style="margin-left: 30px;">아이디 : &nbsp;&nbsp;&nbsp;&nbsp;
-							${id }</p>
-						<p style="margin-left: 30px;">이름&nbsp;&nbsp;&nbsp;&nbsp;:
-							&nbsp;&nbsp;&nbsp;&nbsp; ${name }</p>
-						<p style="margin-left: 30px;">이메일 : &nbsp;&nbsp;&nbsp;&nbsp;
-							${email }</p>
-						<div class="formInfo">
-							<form>
-								아이디 : <input type="text" name="id" value="saveID.myId"><br>
-								비밀번호 : <input type="text" name="password"><br> 
-								이름 :<input type="text" name="name" value="name"><br>
-								이메일 : <input type="text" name="email" value="email"><br>
-								<input type="submit" value="수정완료" onclick=> 
-								<input type="button" value="취소" onclick="location.href='${contextPath}/mct/showMyInfo.do;'">
-							</form>
+				<div class="postingList">
+					<table class="postingTable">
+						<thead>
+							<tr>
+								<th style="width: 20%;">글번호</th>
+								<th style="width: 60%;">글제목</th>
+								<th>작성일</th>
+							</tr>
+						</thead>
+						<c:choose>
+							<c:when test="${empty myList }">
+								<tr height="10">
+									<td colspan="3">
+										<p align="center">
+											<b><span style="font-size: 10pt;">작성글이 없어요 ㅠ</span></b>
+										</p>
+									</td>
+								</tr>
+							</c:when>
 
-						</div>
-					</div>
-					<form id="btns" method="post">
-						<input type="button" value="내정보 수정" onclick="modInfo();">&nbsp;&nbsp;&nbsp;
-						<input type="button" value="메인으로" onclick="location.href=''">
-					</form>
+							<c:when test="${!empty myList }">
+								<c:forEach var="ml" items="${myList }">
+									<tr align="center">
+										<td>1</td>
+										<td>${ml.title }</td>
+										<td>${ml.writeDate }</td>
+									</tr>
+								</c:forEach>
+							</c:when>
+						</c:choose>
+					</table>
+
 				</div>
-
 			</div>
+
 		</div>
 	</div>
 

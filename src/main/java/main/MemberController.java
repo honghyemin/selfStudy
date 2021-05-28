@@ -204,8 +204,9 @@ public class MemberController extends HttpServlet {
 				
 				String id = SaveID.myId;
 				List<BoardVO> myList = new ArrayList<BoardVO>();
+				myList = boardService.myLists(id);
 				request.setAttribute("myList", myList);
-				nextPage = "/member/myPage.jsp";
+				nextPage = "/member/myList.jsp";
 				
 			} else if (action.equals("/boardMain.do")) {
 

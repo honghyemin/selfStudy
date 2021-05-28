@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -357,22 +358,21 @@ public class BoardDAO {
 		
 		try {
 			conn = dataFactory.getConnection();
-			String query = " SELECT * FROM h_board WEHRE id = ? ";
+			String query = " SELECT * FROM h_board WHERE id = ? ";
 			pstmt = conn.prepareStatement(query);
+			System.out.println("id"+id);
 			
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				int level = rs.getInt("level");
 				int articleNO = rs.getInt("articleNO");
 				int parentNO = rs.getInt("parentNO");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				id = rs.getString("id");
 				Date writeDate = rs.getDate("writeDate");
-				BoardVO boardVO = new BoardVO();
-				boardVO.setLevel(level);
+				BoardVO boardVO = new BoardVO();;
 				boardVO.setArticleNum(articleNO);
 				boardVO.setParentNum(parentNO);
 				boardVO.setTitle(title);
@@ -382,6 +382,7 @@ public class BoardDAO {
 				list.add(boardVO);
 				
 			}
+			System.out.println(list.toString());
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
