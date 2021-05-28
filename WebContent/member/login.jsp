@@ -16,8 +16,8 @@ request.setCharacterEncoding("UTF-8");
 <title>로그인창</title>
 <style>
 	.mainView { width:100%; height:100%; position:relative;}
-    .formView {width:1000px; height: 800px; position:relative
-    ; margin-left:200px; margin-top: 200px; text-align: center;}
+    .formView {width:1000px; height: 800px; position:relative; 
+    margin-left:300px; margin-top: 200px; text-align: center;}
     .btn {margin-top: 50px; margin-left: -50px; text-align: center;}
     .writing {margin: auto;}
     .btn1 { width: 50%; height:50px;}
@@ -39,7 +39,7 @@ request.setCharacterEncoding("UTF-8");
                 
             </div>
             
-        </form>
+        		</form>
         <br><br>
         <div class="sing_search">
             <a class="signup" href="${contextPath }/member/joinForm.jsp">회원가입</a>

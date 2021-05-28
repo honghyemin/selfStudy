@@ -214,7 +214,7 @@ div {
 								비밀번호 : <input type="text" name="password"><br> 
 								이름 :<input type="text" name="name" value="name"><br>
 								이메일 : <input type="text" name="email" value="email"><br>
-								<input type="submit" value="수정완료" onclick=> 
+								<input type="submit" value="수정완료" onclick> 
 								<input type="button" value="취소" onclick="location.href='${contextPath}/mct/showMyInfo.do;'">
 							</form>
 

@@ -41,33 +41,37 @@
 <style>
 	.no-uline{text-decoration:none;}
 	.sel-page{text-decoration:none; color:red;}
-	.cls1 {text-decoration:noen; text-align:center; }
-	.cls2{text-align:center; margin-top: 50px;}
+	.cls1 {text-decoration:none; text-align:center; }
+	.cls2{text-align:center; margin-top: 50px; }
 	
 	li {float : left;}
-	li a, .drop {display : inline-block; test-decoration:none;}
-	li a:hover, .myId:hover, .drop{color : red;	}
+	li a, .drop {display : inline-block; text-decoration:none; }
+	li a:hover, .myId:hover, .drop{color : yellow; font-size:1.25em;	}
 	li.myId { display:inline-block;}
-	.dropdown a {display:block; text-align:left;}
+	.dropdown a {display:block; text-align:left; background-color: rgb(61, 59, 59); color:ivory;}
 	.myId:hover .dropdown{display:block;}
 	.dropdown {display:none; position:absolute;}
 	ul {display:inline;}
+    
+    .out {position: absolute; top:150px;}
 	
 </style>
 
 </head>
 <body>
-<p>	접속자 : </p>  
+<p style="background-color:black; color:white; text-weight:bold; width:100px; text-align:center;">	[ USER ] </p>  
 <ul>
 <li class="myId">
-<a href="javascript:void(0)" class="drop">${myId }</a>
+<a href="javascript:void(0)" class="drop" style="font-size:2em; text-align:center; color:black;;">${myId }</a>
 <div class="dropdown">
 <a href="${contextPath}/mct/showMyInfo.do;">마이페이지</a>
+</div>
+<div class="out">
 <form name="lout" action="" enctype="utf-8" method="post">
 <input type="button" value="로그아웃"  onclick="logout();" >
 </form>
-
 </div>
+
 </li>
 </ul>
 
@@ -160,6 +164,6 @@
 
 
 
-<a  class="cls1"  href="${contextPath}/mct/writingForm.do"><p class="cls2">글쓰기</p></a>
+<a  class="cls1"  href="${contextPath}/mct/writingForm.do"><p class="cls2" >글쓰기</p></a>
 </body>
 </html>

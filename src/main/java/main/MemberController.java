@@ -87,7 +87,7 @@ public class MemberController extends HttpServlet {
 
 		String action = request.getPathInfo();
 		System.out.println("action:" + action);
-		HttpSession session; // 답글에 대한 부모 글 번호 저장위해 사용
+		HttpSession session = null; // 답글에 대한 부모 글 번호 저장위해 사용
 
 		try {
 			List<BoardVO> list = new ArrayList<BoardVO>();
@@ -96,12 +96,12 @@ public class MemberController extends HttpServlet {
 			if (action.equals("/login.do")) {
 				String id = request.getParameter("id");
 				String pwd = request.getParameter("pwd");
-				SaveID.myId = id;
+				
 
 				boolean result = memberDAO.memberLogin(id, pwd);
 
-				if (result == true) {
-					request.setAttribute("id", id);
+				if (result) {
+					session.setAttribute("id", id);
 					nextPage = "/member/result.jsp";
 
 				} else {
